@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "./components/Footer";
 import { ThemeProvider } from "./utils/ThemeContext";
 import Navbar from "./components/Navbar";
+import { Analytics } from "@vercel/analytics/react"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
