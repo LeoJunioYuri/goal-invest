@@ -39,6 +39,8 @@ const InvestmentChart: React.FC<InvestmentChartProps> = ({ balances, labels }) =
   };
 
   const options = {
+    responsive: true,
+    maintainAspectRatio: false,
     scales: {
       y: {
         beginAtZero: true,
@@ -46,7 +48,11 @@ const InvestmentChart: React.FC<InvestmentChartProps> = ({ balances, labels }) =
     },
   };
 
-  return <Line data={data} options={options} />;
+  return (
+    <div style={{ width: '100%', height: '400px', maxWidth: '600px', margin: '0 auto' }}>
+      <Line data={data} options={options} />
+    </div>
+  );
 };
 
 export default InvestmentChart;
