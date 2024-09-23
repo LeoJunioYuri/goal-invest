@@ -37,7 +37,7 @@ const InvestmentForm: React.FC<InvestmentFormProps> = ({ onCalculate }) => {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (error) {
         setError("Erro ao buscar as taxas.");
-        setAvailableRates([]); 
+        setAvailableRates([]);
       } finally {
         setLoading(false);
       }
@@ -48,17 +48,11 @@ const InvestmentForm: React.FC<InvestmentFormProps> = ({ onCalculate }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-  
-    if (
-      initialInvestment === undefined ||
-      monthlyContribution === undefined ||
-      !interestRate ||
-      (!goal && !period)
-    ) {
-      setError("Por favor, preencha todos os campos necessários.");
+    if (initialInvestment <= 0 || monthlyContribution <= 0 || !interestRate || (!goal && !period)) {
+      setError("Por favor, preencha todos os campos necessários com valores válidos.");
       return;
     }
-  
+
     setError(null);
     onCalculate({
       initialInvestment,
@@ -68,7 +62,6 @@ const InvestmentForm: React.FC<InvestmentFormProps> = ({ onCalculate }) => {
       investmentPeriod: calculationType === 'period' ? period : undefined,
     });
   };
-  
 
   const handleRateChange = (value: string | number) => {
     if (value === 'custom') {
@@ -82,7 +75,7 @@ const InvestmentForm: React.FC<InvestmentFormProps> = ({ onCalculate }) => {
   };
 
   return (
-    <Box component="form" onSubmit={handleSubmit}>
+    <Box component="form" onSubmit={handleSubmit} sx={{ backgroundColor: 'background.paper', padding: 3, borderRadius: 2, boxShadow: 2 }}>
       <TextField
         label="Aporte Inicial"
         type="number"
@@ -91,6 +84,8 @@ const InvestmentForm: React.FC<InvestmentFormProps> = ({ onCalculate }) => {
         fullWidth
         margin="normal"
         required
+        variant="outlined"
+        sx={{ backgroundColor: 'background.default', borderRadius: 1 }}
       />
       <TextField
         label="Aportes Mensais"
@@ -100,14 +95,17 @@ const InvestmentForm: React.FC<InvestmentFormProps> = ({ onCalculate }) => {
         fullWidth
         margin="normal"
         required
+        variant="outlined"
+        sx={{ backgroundColor: 'background.default', borderRadius: 1 }}
       />
-      <FormControl fullWidth margin="normal" required>
+      <FormControl fullWidth margin="normal" required variant="outlined">
         <InputLabel id="rate-select-label">Taxa de Juros</InputLabel>
         <Select
           labelId="rate-select-label"
           value={selectedRate !== null ? selectedRate : ''}
           label="Taxa de Juros"
           onChange={(e) => handleRateChange(e.target.value)}
+          sx={{ backgroundColor: 'background.default', borderRadius: 1 }}
         >
           {availableRates.length > 0 ? (
             availableRates.map((rate) => (
@@ -133,16 +131,19 @@ const InvestmentForm: React.FC<InvestmentFormProps> = ({ onCalculate }) => {
           fullWidth
           margin="normal"
           required
+          variant="outlined"
+          sx={{ backgroundColor: 'background.default', borderRadius: 1 }}
         />
       )}
 
-      <FormControl fullWidth margin="normal">
+      <FormControl fullWidth margin="normal" variant="outlined">
         <InputLabel id="calculation-type-label">Tipo de Cálculo</InputLabel>
         <Select
           labelId="calculation-type-label"
           value={calculationType}
           label="Tipo de Cálculo"
           onChange={(e) => setCalculationType(e.target.value as 'goal' | 'period')}
+          sx={{ backgroundColor: 'background.default', borderRadius: 1 }}
         >
           <MenuItem value="goal">Calcular Tempo para Meta</MenuItem>
           <MenuItem value="period">Calcular Montante no Período</MenuItem>
@@ -158,6 +159,8 @@ const InvestmentForm: React.FC<InvestmentFormProps> = ({ onCalculate }) => {
           fullWidth
           margin="normal"
           required
+          variant="outlined"
+          sx={{ backgroundColor: 'background.default', borderRadius: 1 }}
         />
       ) : (
         <TextField
@@ -168,6 +171,8 @@ const InvestmentForm: React.FC<InvestmentFormProps> = ({ onCalculate }) => {
           fullWidth
           margin="normal"
           required
+          variant="outlined"
+          sx={{ backgroundColor: 'background.default', borderRadius: 1 }}
         />
       )}
 
@@ -177,7 +182,7 @@ const InvestmentForm: React.FC<InvestmentFormProps> = ({ onCalculate }) => {
         </Alert>
       )}
 
-      <Button type="submit" variant="contained" color="primary" fullWidth disabled={loading}>
+      <Button type="submit" variant="contained" color="primary" fullWidth disabled={loading} sx={{ mt: 2 }}>
         {loading ? 'Carregando...' : 'Calcular'}
       </Button>
     </Box>
