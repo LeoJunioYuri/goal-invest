@@ -2,13 +2,11 @@
 import React, { useState } from "react";
 import InvestmentForm from "./components/InvestmentForm";
 import InvestmentResult from "./components/InvestmentResult";
-import { Typography, Alert, Box, Container, Button } from "@mui/material";
+import { Typography, Alert, Box, Container } from "@mui/material";
 import { InvestmentData, InvestmentResultData } from "./types";
 import { performCalculations } from "./utils/calculations";
-import { useTheme } from './utils/ThemeContext'; // Importar o hook do tema
 
 const HomePage: React.FC = () => {
-  const { darkMode, toggleTheme } = useTheme(); // Obter o estado do tema
   const [result, setResult] = useState<InvestmentResultData | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -32,22 +30,14 @@ const HomePage: React.FC = () => {
         alignItems: 'center',
         minHeight: '100vh',
         padding: '16px',
-        backgroundColor: 'var(--background)', // Cor de fundo
-        color: 'var(--foreground)', // Cor do texto
-        transition: 'background-color 0.3s, color 0.3s', // Transição suave
+        backgroundColor: 'var(--background)',
+        color: 'var(--foreground)', 
+        transition: 'background-color 0.3s, color 0.3s', 
       }}
     >
       <Typography variant="h4" align="center" gutterBottom>
         Goal Invest
       </Typography>
-
-      <Button
-        variant="outlined"
-        onClick={toggleTheme}
-        sx={{ mb: 2, color: 'var(--foreground)', borderColor: 'var(--foreground)' }} // Cor do botão
-      >
-        {darkMode ? 'Tema Claro' : 'Tema Escuro'}
-      </Button>
 
       <InvestmentForm onCalculate={handleCalculate} />
 
