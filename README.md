@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Goal Invest
 
-## Getting Started
+Goal Invest é uma aplicação web que permite aos usuários calcular investimentos com base em diferentes taxas de juros, como Selic, CDI, IPCA e Poupança. O objetivo do projeto é oferecer uma ferramenta simples e eficaz para ajudar os usuários a simular e planejar suas finanças.
 
-First, run the development server:
+## Tecnologias Utilizadas
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **React**: Biblioteca JavaScript para construir interfaces de usuário.
+- **Next.js**: Framework React para desenvolvimento de aplicações web e SSR (Server-Side Rendering).
+- **Material-UI**: Biblioteca de componentes para React que fornece uma interface de usuário responsiva e acessível.
+- **Axios**: Biblioteca para realizar requisições HTTP.
+- **TypeScript**: Superset do JavaScript que adiciona tipagem estática.
+- **Chart.js**: Biblioteca para criação de gráficos dinâmicos e interativos.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Funcionalidades
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Cálculo de investimentos baseado em diferentes taxas.
+- Formulário de entrada para os usuários inserirem dados de investimento.
+- Resultados exibidos de forma clara e concisa.
+- Exibição de gráficos para visualização do desempenho do investimento ao longo do tempo.
+- Suporte para temas claro e escuro, permitindo que os usuários escolham a interface que melhor se adapta ao seu gosto e ambiente.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Hospedagem
 
-## Learn More
+A aplicação está hospedada na [Vercel](https://vercel.com), permitindo implantações rápidas e escaláveis com suporte a SSR. A Vercel fornece um ambiente otimizado para aplicações Next.js, garantindo desempenho e confiabilidade.
 
-To learn more about Next.js, take a look at the following resources:
+## Instalação
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/goal-invest.git
+2. Navegue até o diretório do projeto:
+    ```bash
+    cd goal-invest
+3. Instale as dependências:
+    ```bash
+    npm install
+4. Inicie o servidor de desenvolvimento:
+    ```bash
+    pnpm run dev
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Contribuição
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contato
+Desenvolvedor: Leonardo Basso
+GitHub: [leojunioyuri](https://github.com/LeoJunioYuri)
+LinkedIn: [leojunioyuri](https://www.linkedin.com/in/leojunioyuri/)
