@@ -1,10 +1,10 @@
 //import axios from 'axios';
 
 // Dados mockados
-const MOCK_SELIC = 10.75; // Selic atual
-const MOCK_CDI = 11.20; // CDI atual
-const MOCK_IPCA = 4.50; // IPCA acumulado nos últimos 12 meses
-const MOCK_SAVINGS = 7.03; // Poupança anual
+const MOCK_SELIC = 10.65; // Selic atual
+const MOCK_CDI = 10.65; // CDI atual
+const MOCK_IPCA = 3.97; // IPCA acumulado nos últimos 12 meses
+const MOCK_SAVINGS = 6.17; // Poupança anual
 
 // Função para buscar a taxa Selic
 export const fetchSelicRate = async (): Promise<number> => {
