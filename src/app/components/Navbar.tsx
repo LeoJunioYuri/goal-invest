@@ -21,30 +21,25 @@ const Navbar: React.FC = () => {
 
   return (
     <AppBar position="static">
-      <Toolbar>
-        <Typography variant="h6" sx={{ flexGrow: 1 }}>
+      <Toolbar sx={{ justifyContent: 'space-between' }}>
+        {isMobile && (
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+            onClick={handleMenuOpen}
+          >
+            <MenuIcon />
+          </IconButton>
+        )}
+
+        <Typography variant="h6" sx={{ flexGrow: 1, display: isMobile ? 'none' : 'block' }}>
           Goal Invest
         </Typography>
 
         {isMobile ? (
           <>
-            <Button
-              variant="outlined"
-              color="inherit"
-              onClick={toggleTheme}
-              sx={{ mr: 3, mb: 0.5 }}
-            >
-              {darkMode ? 'Tema Claro' : 'Tema Escuro'}
-            </Button>
-            <IconButton
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 1, mb: 0.5 }}
-              onClick={handleMenuOpen}
-            >
-              <MenuIcon />
-            </IconButton>
             <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleMenuClose}>
               <MenuItem onClick={handleMenuClose} component={Link} href="/">
                 Investimentos
@@ -56,18 +51,23 @@ const Navbar: React.FC = () => {
           </>
         ) : (
           <>
-            {/* Desktop */}
             <Button component={Link} href="/" color="inherit" sx={{ marginRight: 2 }}>
               Investimentos
             </Button>
             <Button component={Link} href="/faq" color="inherit" sx={{ marginRight: 2 }}>
               FAQ
             </Button>
-            <Button variant="outlined" color="inherit" onClick={toggleTheme}>
-              {darkMode ? 'Tema Claro' : 'Tema Escuro'}
-            </Button>
           </>
         )}
+
+        <Button
+          variant="outlined"
+          color="inherit"
+          onClick={toggleTheme}
+          sx={{ mb: 0.5 }}
+        >
+          {darkMode ? 'Tema Claro' : 'Tema Escuro'}
+        </Button>
       </Toolbar>
     </AppBar>
   );
