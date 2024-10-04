@@ -33,21 +33,11 @@ const HomePage: React.FC = () => {
         Goal Invest
       </Typography>
 
-      <Box
-        className={`w-full flex flex-col md:flex-row items-center justify-center transition-transform duration-500 ease-in-out`}
-      >
+      <Box className="w-full flex flex-col md:flex-row items-center justify-center transition-transform duration-500 ease-in-out">
         <Box
-          className={`transition-transform duration-500 ease-in-out ${
-            calculated ? 'translate-y-0' : '-translate-y-12'
-          }`}
-          style={{
-            maxWidth: '90%',
-            width: '500px',
-            height: '400px',
-            margin: '4rem auto 6rem',
-          }}
+          className={`transition-transform duration-500 ease-in-out ${calculated ? 'translate-y-0' : '-translate-y-12'} max-w-[100%] w-[500px] h-[375px] mx-auto my-16`}
         >
-          <Typography variant="h5" align="center" style={{ paddingBottom: '1rem' }}>
+          <Typography variant="h5" align="center" className="pb-4">
             Dados do investimento
           </Typography>
           <InvestmentForm onCalculate={handleCalculate} />
@@ -55,17 +45,7 @@ const HomePage: React.FC = () => {
 
         {result && (
           <Box
-            className={`transition-opacity duration-500 ease-in-out ${
-              calculated ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'
-            }`}
-            style={{
-              maxWidth: '90%',
-              width: '500px',
-              height: '400px',
-              margin: '0 4rem',
-              marginTop: window.innerWidth < 768 ? '12rem' : '6rem',
-              marginBottom: '12rem',
-            }}
+            className={`transition-opacity duration-500 ease-in-out ${calculated ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'} max-w-[90%] w-[500px] h-[400px] mx-4 mt-12 mb-12`}
           >
             <Typography variant="h5" align="center">
               Gráfico de Investimentos
