@@ -42,7 +42,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <ThemeProvider>
           <Navbar />
-          {children}
+          <main>
+            {children}
+          </main>
           <Footer />
         </ThemeProvider>
         <Analytics />
@@ -50,3 +52,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+
